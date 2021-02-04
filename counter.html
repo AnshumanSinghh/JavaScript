@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    <h1>Counter</h1>
+    <h2>Hello!</h2>
+    <p>You have clicked this button <b><span id="p">0</span></b> time(s).</p>
+    <button onclick="Counter()">Count</button>
+    <button>Count 2</button>
+</body>
+<script>
+    //  to define a new variable use let keyword.
+    let c = 0;
+
+    function Counter() {
+        c += 1;
+        // alert(`Counter = ${c}`);
+        document.getElementById("p").innerText = c;
+
+        if (c % 2 === 0) {
+            document.querySelector('h1').innerHTML = "Goodbye!";
+        }
+        else{
+            document.querySelector('h1').innerHTML = "Welcome!";
+        }
+
+        // another way of doing the same thing
+        if (document.querySelector('h2').innerHTML === "Hello!") {
+            document.querySelector('h2').innerHTML = "Goodbye!";
+        } 
+        else {
+            document.querySelector('h2').innerHTML = "Hello!";
+        }
+    }
+    // adding an event listener
+    document.querySelectorAll('button')[1].onclick = Counter;
+</script>
+</html>

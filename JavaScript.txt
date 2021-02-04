@@ -1,0 +1,64 @@
+JavaScript is going to enable us to do is to begin to write client-side code. It allow us to
+write code that actually runs inside of the users web browser on the client and this can be useful 
+for number of reasons, one if there's computation that we want to do but dont't need to go out and 
+reach out to a server in order to do so we can do the computation potentially faster just by runnin
+the code exclusively on the client and in addition to that we can begin to make our web pages a
+whole lot more interactive. JavaScript is going to give us the ability to directly manipulate the DOM
+(Document Object Model), the tree like hierarchy that represents the web page that the user happens to 
+be looking at. So JavaScript will enable us to write code that directly manipulates the content on the 
+web page and we can see how that can be quite powerful.
+
+>>> JavaScript is written inside the script tag.
+
+  <script> 
+	// write your JS code here
+  </script>
+
+Example: to alert Hello, world!
+
+<script>
+   alert('Hello, world!');
+</script>
+
+JavaScript become quite powerful with event driven-programming and what event-driven programming is all
+about is thinking about things that happen on the web in terms of events that happen whhat are some 
+examples of events, events are things like user clicks / double-click on a button or user selects something
+froma drop-down list or user Scrolls through a list or submits a form anything user does can generally be thought
+of as an event and what we can do with JavaScript is add event listeners or event handlers things that say when
+an event happens go ahead and run this particular block of code or this function for example.
+
+To declare a variable in JavaScript:
+>>> let any_variable_name = 1 (any integer for int type) or "if_string";
+
+For conastant variable, that not gonna change throughout the web page otherwise it will throw an error:
+>>> const a = whatever_variable_we_want;
+
+>>> document.querySelector()
+
+It is going to give us the ability to look through an HTML page and extract an element out of that page. So
+that we can manipulate that HTML element using JavaScript code and so if I want to select like an h1 element.
+
+>>> document.querySelector('h1')
+
+Basically I am saying here that go through the page and find me an h1 element and querySelector is only going
+to return one element so if they're multiple it's going to return the first thing it finds.
+
+>>> document.querySelector('h1').innerHTML = "This will our innerHTML now";  ==> This will change the innerHTML 
+or inner content of h1 tag.
+
+>>> === three equlas to means strict checking to make sure the two values are equal and also their types are the 
+same thing. If one is string then other one must be a string.
+whereas, 
+>>> == double equals to sign is used to check the values are the same but it's going to allow for a bit of differences
+in type the two things might have different types but so long as they're basically the same value the double equal sign
+might generally come to be true.
+
+Usually if we want to use we can use the triple equal sign the strict equality to make sure that not only are the types
+the same but the values are the same too and with triple equal sign will check both of those things.
+
+Template literal or formated string like in Python:
+>>> `Use back tick and right inside it and to use var use dollar and curly brackets like: ${var1} and then use another back tick.`
+So, for example:
+>>> `The count is now ${count}`
+will give o/p:- The count is now no_of_times_button_clicked
+
