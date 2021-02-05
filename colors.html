@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors!</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // for changing font color
+            document.querySelectorAll('button').forEach(button => {  // forEach() button run button.onclick function.
+                button.onclick = function() {
+                document.querySelector('h1').style.color = button.dataset.color;  // to acces the data attribute property we use button.dataset 
+                                                                                  // and for data-color use button.dataset.color.
+                }
+            });
+
+
+            // for selectors
+            document.querySelector('select').onchange = function() {
+                document.querySelector('h2').style.color = this.value;  // here this is for document.querySelector('select')
+                // this always refers to the thing that received the event and here it was select drop-down.
+                console.log(this.value);
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>COLORS!!</h1>
+    <button data-color="green">Green</button>
+    <button data-color="skyblue">SkyBlue</button>
+    <button data-color="red">Red</button>
+
+    <h2>SELECTORS!!</h2>
+    <select name="color" id="color">
+        <option value="black">Black</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+    </select>
+</body>
+</html>

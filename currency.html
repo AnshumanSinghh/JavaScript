@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURRENCY</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // convert only when form is submitted
+            document.querySelector('form').onsubmit = function() {
+            
+
+            // to get back HTTP response from any server
+            fetch('https://api.exchangeratesapi.io/latest?base=USD')
+
+            // fetch gives back to us something in JS known as a promise & it is going to be a way of
+            // representing the idea that something is going to come back but it may not come back immediately.
+
+            // .then(response => {  // what I want to do when the promise comes back, convert it into JSON
+            //         return response.json()
+            //     })
+
+            // short hand for converting the response into response.json
+            .then(response => response.json())
+            .then(data => {  // once we have data do whatever you want
+
+                const currency = document.querySelector('#currency').value.toUpperCase();
+                
+                // access current currency rate of Euro
+                const rate = data.rates[currency];  // we can't use data.rates.currency as we want to use variable here so, data.rates[currency].
+
+                if (rate !== undefined) {  // if the user gives invalid input then promise will return undefined.
+                    document.querySelector('h2').innerHTML = `1 USD is equal to ${rate.toFixed(3)} ${currency}.`;  //  toFixed(3) means round the rate to three decimal places.
+                }
+                else{
+                    document.querySelector('h2').innerHTML = "Invalid Currency Name / Code."
+                }
+            })
+            // if something goes wrong with the API.
+            .catch(error => {
+                console.log('Error: ', error);
+            });
+            return false;
+
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <h1>CURRENCY EXCHANGE!</h1>
+    <h2></h2>
+    <form>
+        <input id="currency" type="text" placeholder="Currency">
+        <input type="submit" value="Convert">
+    </form>
+</body>
+</html>

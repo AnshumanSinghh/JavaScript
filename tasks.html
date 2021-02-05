@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // by default, the submit button is disabled
+            document.querySelector('#submit').disabled = true;
+
+            document.querySelector('#task').onkeyup = () => {
+                if (document.querySelector('#task').value.length > 0){
+                    document.querySelector('#submit').disabled = false;
+                }
+                else{
+                    document.querySelector('#submit').disabled = true;
+                }
+            }
+
+            document.querySelector('form').onsubmit = () => {
+                const task = document.querySelector('#task').value;
+                console.log(task);    
+                
+                // to create li tag: <li> </li>
+                const li = document.createElement("li");
+                li.innerHTML = task; // now the text inside of the li tag should be task that user enters.
+                
+                // to add or say append the created HTML element or tag, here it is li tag.
+                document.querySelector('#tasks').append(li);
+
+                // to set balnk the input field of input tag after form submission. So that it doesn't contain the previous input.
+                document.querySelector('#task').value = "";
+                document.querySelector('#submit').disabled = true;
+
+                // to stop form from submitting return false
+                return false;  
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Tasks!</h1>
+    <ul id="tasks">
+    </ul>
+    <form>
+        <input id="task" type="text" name="name">
+        <input id="submit" type="submit">
+    </form>
+</body>
+</html>

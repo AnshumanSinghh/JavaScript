@@ -32,6 +32,10 @@ To declare a variable in JavaScript:
 
 For conastant variable, that not gonna change throughout the web page otherwise it will throw an error:
 >>> const a = whatever_variable_we_want;
+In JavaScript variable can be anything, it can be html element, string, integer, float etc. And also it can be equal
+to function, just pass that around as a value. This is a Paradigm and we generally call it as functional programming.
+where we have functions as value of their own things that we can reassign things that we can manipulate just as we could
+have any other value.
 
 >>> document.querySelector()
 
@@ -62,3 +66,101 @@ So, for example:
 >>> `The count is now ${count}`
 will give o/p:- The count is now no_of_times_button_clicked
 
+We can add event listener to document itself:
+>>> document.addEventListener(arg1(EVENT), arg2(FUNCTION)) and we can add this eventListener on any HTML element.
+To do so,                     
+                                  EVENT          FUNCTION
+>>> document.addEventListener('DOMContentLoaded', 'click');  // means when the whole document object model is loaded.
+// Once the DOM is loaded run an event passed as second argument. But we can also write the function here.
+
+Example:
+>>> document.addEventListener('DOMContentLoaded', function() {
+
+      document.querySelector('button').onclick = Counter;  // Counter is function which counts no. of clicks made to a button.
+});
+
+===== data attribute is used to say that i would like to associate some data with this particular html element wherever
+      we have used it. If used with button then that data attribute has some data associated with it, which can be used where 
+      ever we want on the web page.
+      syntax: 
+      data-attribute_name like for color it would be data-color = "red/blue/yellow etc."
+
+foreach() it will automatically traverse the whole array we dont need to know the length of the array.
+another synatx using fat-arrow function method:
+forEach(var => {
+  // write you code here for variable var
+  // by using fat-arrow function we don't need to put parenthesis [function(var) {}] now it would be [var => {}]
+  console.log(var);
+});
+
+>>> If the variable is function then,
+regular syntax:
+function() {
+
+};
+
+Now using fat-arrow function:
+syntax:
+() => {
+
+};
+
+Basically this is short hand for creating the function. Whatever is to left of the arrow sign is the input to the function
+and whatever is to the right of the arrow sign is what code actually should run when the function is called upon.
+
+this keyword doesn't work if you have used fat-arrow function. And by default it refers to global object.
+Example:
+
+<script>
+document.getElementById("demo").innerHTML = myFunction();
+function myFunction() {
+  return this;
+}
+</script>
+
+>>> o/p: In this example, this represents the object that "owns" myFunction:
+         [object Window]
+
+====== EVENTS ======
+1.onclick
+2.onmouseover
+3.onkeydown
+4.onkeyup
+5.onload
+6.onblur
+
+>>> Local Storage: It's way for us to be bale to store information inside of the users web browser.
+Local Storage provide us two key functions that we're going to use to manipulate this local storage.
+1. localStorage.getItem(key): to get something out of local storage based on it's key, some name that
+    we have given to the value.
+2. localStorage.setItem(key, value): to add new values to local storage or replaces an existing value
+    in local storage (setting this key to a particular value). So we can use local storage then to allow our webpages 
+    using JavaScript to able to store information and retrieve information from the browser.
+
+
+JavaScript Object: It is similar to dictionary in Python.
+let person = {
+  "name": "Harry",
+  "stream": "CSE",
+  "age": 22
+}
+
+now we can acess JSON or JavaScript object in two ways:
+1. person.name
+>>> Harry
+
+2. person['age']
+>>> 22
+
+============ API [Application Programming Interface] ============
+In the context of web we can think of as well defined structured way for services on the Internet to
+communicate with each other, that if we want our application to be able to talk to some other service
+maybe we want to our application to interact with Amazon, Google Maps or some other weather service to get 
+the day's weather then er might be able to access some API some mechanism whereby we can communicate with 
+another service by sending a request and reeiving a JSON (a well structured data, known as Javascript Object Notation).
+
+=========== AJAX [Asynchronus JavaScript] ===========
+Asynchronus JavaScript: Where the idea is that even after a page is loaded using JavaScript we can make additional web requests
+to ask for additional information either from our own web server or from third party web servers if we want additional information
+on our page and in this case our page make an asynchronus request for additional data about the anything like, current currency exchange,
+stock market status, news headlines etc.
