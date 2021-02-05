@@ -1,4 +1,4 @@
-JavaScript is going to enable us to do is to begin to write client-side code. It allow us to
+JavaScript is going to enable us to write client-side code. It allow us to
 write code that actually runs inside of the users web browser on the client and this can be useful 
 for number of reasons, one if there's computation that we want to do but dont't need to go out and 
 reach out to a server in order to do so we can do the computation potentially faster just by runnin
